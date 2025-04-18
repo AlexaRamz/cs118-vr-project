@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(exitKey) && SceneManager.GetActiveScene().buildIndex != 0) // Load main menu only if not already in that scene
         {
+            // Remove first-person effects: Unlock and show cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             LoadSceneByIndex(0);
         }
     }
