@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Tooltip("The key to exit the game and return to the main menu")]
-    public KeyCode exitKey;
-
     private void Awake()
     {
         if (Instance == null)
@@ -27,11 +24,20 @@ public class GameManager : MonoBehaviour
     public void LoadSceneByIndex(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+        RemoveSceneEffects();
     }
 
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        RemoveSceneEffects();
+    }
+
+    void RemoveSceneEffects()
+    {
+        // Remove first-person effects: Unlock and show cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void QuitGame()
@@ -43,17 +49,5 @@ public class GameManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(exitKey) && SceneManager.GetActiveScene().buildIndex != 0) // Load main menu only if not already in that scene
-        {
-            // Remove first-person effects: Unlock and show cursor
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            LoadSceneByIndex(0);
-        }
     }
 }
