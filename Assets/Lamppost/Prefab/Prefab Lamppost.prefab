@@ -172,13 +172,13 @@ MonoBehaviour:
   changeRange: 0
   rangeSpeed: 1
   maxRange: 10
-  changeIntensity: 1
-  intensitySpeed: 4
-  maxIntensity: 12
-  changeColors: 0
-  colorSpeed: 1
-  startColor: {r: 1, g: 1, b: 1, a: 0}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
+  changeIntensity: 0
+  intensitySpeed: 0.5
+  maxIntensity: 1.5
+  changeColors: 1
+  colorCycleDuration: 6
+  startColor: {r: 1, g: 0.899788, b: 0, a: 0}
+  endColor: {r: 0.18039216, g: 1, b: 0.48235294, a: 0}
 --- !u!1 &3088766537861915731
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,13 +316,13 @@ MonoBehaviour:
   changeRange: 0
   rangeSpeed: 1
   maxRange: 10
-  changeIntensity: 1
+  changeIntensity: 0
   intensitySpeed: 0.5
   maxIntensity: 1.5
-  changeColors: 0
-  colorSpeed: 1
-  startColor: {r: 1, g: 1, b: 1, a: 0}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
+  changeColors: 1
+  colorCycleDuration: 6
+  startColor: {r: 1, g: 0.899788, b: 0, a: 0}
+  endColor: {r: 0.18039216, g: 1, b: 0.48235294, a: 0}
 --- !u!1 &5419602339710611457
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,13 +460,13 @@ MonoBehaviour:
   changeRange: 0
   rangeSpeed: 1
   maxRange: 10
-  changeIntensity: 1
+  changeIntensity: 0
   intensitySpeed: 0.5
   maxIntensity: 1.5
-  changeColors: 0
-  colorSpeed: 1
-  startColor: {r: 1, g: 1, b: 1, a: 0}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
+  changeColors: 1
+  colorCycleDuration: 6
+  startColor: {r: 1, g: 0.899788, b: 0, a: 0}
+  endColor: {r: 0.18039216, g: 1, b: 0.48235294, a: 0}
 --- !u!1001 &3625099565347734126
 PrefabInstance:
   m_ObjectHideFlags: 0
