@@ -17,7 +17,7 @@ public class DynamicLight : MonoBehaviour
 
     // Color Variables
     public bool changeColors = false;
-    public float colorSpeed = 1.0f;
+    public float colorCycleDuration = 1.0f;
     public Color startColor;
     public Color endColor;
 
@@ -44,7 +44,11 @@ public class DynamicLight : MonoBehaviour
 
         if (changeColors)
         {
-            float t = Mathf.Sin(Time.time - startTime * colorSpeed);
+            float timeElapsed = Time.time - startTime;
+            float timeInCycle = timeElapsed % colorCycleDuration;
+            float normalizedTime = timeInCycle / colorCycleDuration;
+            float sinValue = Mathf.Sin(normalizedTime * 2 * Mathf.PI);
+            float t = (sinValue + 1) * 0.5f;
             myLight.color = Color.Lerp(startColor, endColor, t); 
         }
     }
