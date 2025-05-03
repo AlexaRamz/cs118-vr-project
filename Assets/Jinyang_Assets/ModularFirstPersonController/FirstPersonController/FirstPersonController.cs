@@ -202,6 +202,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.gameIsPaused) return;
         #region Camera
 
         // Control camera movement
@@ -366,6 +367,7 @@ public class FirstPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.gameIsPaused) return;
         #region Movement
 
         if (playerCanMove)
