@@ -7,27 +7,28 @@ public class PauseManager : MonoBehaviour
     [Tooltip("The key to pause the game and open the pause menu")]
     public KeyCode pauseKey;
 
-    public static bool GameIsPaused = false;
-
     public void Pause()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
-        GameIsPaused = true;
+        GameManager.Instance.EnterUIMode();
+
+        GameManager.Instance.PauseGame();
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        GameManager.Instance.EnterGameplayMode();
+
         Time.timeScale = 1;
-        GameIsPaused = false;
+        GameManager.Instance.ResumeGame();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(pauseKey))
         {
-            if (GameIsPaused)
+            if (GameManager.Instance.gameIsPaused)
             {
 
                 Resume();
