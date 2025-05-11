@@ -6,7 +6,10 @@ public class AnaglyphRenderer : MonoBehaviour
 {
     public RenderTexture leftTexture;
     public RenderTexture rightTexture;
+
     public RawImage rawImageOutput;
+    public RawImage leftRawImageOutput;
+    public RawImage rightRawImageOutput;
 
     private Texture2D leftTex2D;
     private Texture2D rightTex2D;
@@ -56,13 +59,43 @@ public class AnaglyphRenderer : MonoBehaviour
                         1f                // alpha
                     );
 
+                    Color newLeftColor = new Color(
+                        leftColor.r,
+                        0f,
+                        0f,
+                        1f
+                    );
+
+                    Color newRightColor = new Color(
+                        0f,
+                        rightColor.g,
+                        rightColor.b,
+                        1f
+                    );
+
                     anaglyphTex2D.SetPixel(x, y, anaglyph);
+                    leftTex2D.SetPixel(x, y, newLeftColor);
+                    rightTex2D.SetPixel(x, y, newRightColor);
                 }
             }
 
-         
+
             anaglyphTex2D.Apply();
-            rawImageOutput.texture = anaglyphTex2D;
+            leftTex2D.Apply();
+            rightTex2D.Apply();
+
+            if (rawImageOutput)
+            {
+                rawImageOutput.texture = anaglyphTex2D;
+            }
+            if (leftRawImageOutput)
+            {
+                leftRawImageOutput.texture = leftTex2D;
+            }
+            if (rightRawImageOutput)
+            {
+                rightRawImageOutput.texture = rightTex2D;
+            }
         }
     }
 }
