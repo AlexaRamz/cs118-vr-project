@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 143159346}
   - component: {fileID: 143159345}
   - component: {fileID: 143159344}
+  - component: {fileID: 143159348}
+  - component: {fileID: 143159349}
   m_Layer: 0
   m_Name: RightCamera
   m_TagString: Untagged
@@ -250,12 +252,41 @@ Transform:
   m_GameObject: {fileID: 143159343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 753372870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143159348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143159343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa3b3c17754a64dbc6a092f189e754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeftEye: 0
+  convergenceDistance: 10
+  eyeOffset: 0.03
+--- !u!114 &143159349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143159343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b11c187ba3c7743af06d198efdba57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frustumColor: {r: 0, g: 1, b: 0, a: 1}
+  visualizeInEditor: 1
 --- !u!1 &515915846
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 1055037560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.934083, y: 3.2384322, z: 11.325899}
+  m_LocalPosition: {x: 9.52, y: 3.2384322, z: 11.325899}
   m_LocalScale: {x: 1.8273, y: 1.0700724, z: 1.8273}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1039,8 +1070,8 @@ Transform:
   m_GameObject: {fileID: 1319434479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.82471, y: 2.1683595, z: 11.045319}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 13.04, y: 2.1683595, z: 11.045319}
+  m_LocalScale: {x: 1.39, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1327,7 +1358,7 @@ Transform:
   m_GameObject: {fileID: 1785130526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.363153, y: 2.946425, z: 8.166434}
+  m_LocalPosition: {x: 14.29, y: 2.946425, z: 8.166434}
   m_LocalScale: {x: 1.5561303, y: 1.5561303, z: 1.5561303}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1345,6 +1376,8 @@ GameObject:
   - component: {fileID: 1961277892}
   - component: {fileID: 1961277891}
   - component: {fileID: 1961277890}
+  - component: {fileID: 1961277894}
+  - component: {fileID: 1961277895}
   m_Layer: 0
   m_Name: LeftCamera
   m_TagString: Untagged
@@ -1464,12 +1497,41 @@ Transform:
   m_GameObject: {fileID: 1961277889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 753372870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961277894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961277889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa3b3c17754a64dbc6a092f189e754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeftEye: 1
+  convergenceDistance: 10
+  eyeOffset: 0.03
+--- !u!114 &1961277895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961277889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b11c187ba3c7743af06d198efdba57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frustumColor: {r: 0, g: 1, b: 0, a: 1}
+  visualizeInEditor: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
