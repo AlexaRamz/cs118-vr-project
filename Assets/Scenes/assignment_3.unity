@@ -10445,6 +10445,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1564471480}
     m_Modifications:
+    - target: {fileID: 275028306867490909, guid: 9bc434fb65fbf364f8640e4bd870a44d,
+        type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 275028306867490909, guid: 9bc434fb65fbf364f8640e4bd870a44d,
+        type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2198287153628968849, guid: 9bc434fb65fbf364f8640e4bd870a44d,
         type: 3}
       propertyPath: m_LocalPosition.x

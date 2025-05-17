@@ -13,4 +13,8 @@ public class SceneLoader : MonoBehaviour
     {
         GameManager.Instance.LoadSceneByName(sceneName);
     }
+    public void LoadNextScene()
+    {
+        GameManager.Instance.LoadNextScene();
+    }
 }
