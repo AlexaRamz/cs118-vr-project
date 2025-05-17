@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadNextScene()
+    {
+        ResetSceneState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     void ResetSceneState()
     {
         RemoveFirstPersonEffects();
