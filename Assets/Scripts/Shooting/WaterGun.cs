@@ -1,19 +1,90 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.InputSystem;
 
 public class WaterGun : MonoBehaviour
 {
     [SerializeField] private ParticleSystem waterStreamEffect;
+    private XRGrabInteractable grabInteractable;
+    [SerializeField] private InputActionProperty activateAction;
+    public bool useXRInput = false;
 
-    private void Update()
+    void Awake()
     {
-        if (Input.GetMouseButtonDown(0))
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        grabInteractable.selectEntered.AddListener(OnSelectEntered);
+        grabInteractable.selectExited.AddListener(OnSelectExited);
+
+        if (activateAction.action != null)
         {
-            waterStreamEffect.Play();
+            activateAction.action.Enable();
         }
-        if (Input.GetMouseButtonUp(0))
+    }
+
+
+    void Update()
+    {
+        if (!useXRInput)
         {
-            waterStreamEffect.Stop();
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartShooting();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                StopShooting();
+            }
         }
+    }
+
+    void OnDestroy()
+    {
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.RemoveListener(OnSelectEntered);
+            grabInteractable.selectExited.RemoveListener(OnSelectExited);
+        }
+
+        if (activateAction.action != null)
+        {
+            activateAction.action.Disable();
+        }
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        activateAction.action.performed += OnActivatePerformed;
+        activateAction.action.canceled += OnActivateCanceled;
+    }
+
+    private void OnSelectExited(SelectExitEventArgs args)
+    {
+        StopShooting();
+
+        activateAction.action.performed -= OnActivatePerformed;
+        activateAction.action.canceled -= OnActivateCanceled;
+    }
+
+    private void OnActivatePerformed(InputAction.CallbackContext context)
+    {
+        if (useXRInput) StartShooting();
+    }
+
+    private void OnActivateCanceled(InputAction.CallbackContext context)
+    {
+        if (useXRInput) StopShooting();
+    }
+
+    private void StartShooting()
+    {
+        waterStreamEffect.Play();
+    }
+
+    private void StopShooting()
+    {
+        waterStreamEffect.Stop();
     }
 
     public void OnWaterCollision(GameObject hitObject)

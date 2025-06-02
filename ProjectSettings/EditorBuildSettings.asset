@@ -20,5 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Temp_Scene.unity
     guid: bfb77c7d772a311418ad385c60773b3c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: db394f6ed16ab6b46ae80642c8bb4cdb,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5e959372b9b163640ba430058c36f4c4,
+      type: 2}
   m_UseUCBPForAssetBundles: 0
