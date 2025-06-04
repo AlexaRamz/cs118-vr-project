@@ -241,7 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b0ffe380f080743911f23bd95a9808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffectPrefab: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!1 &493438691
 GameObject:
@@ -801,7 +800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b0ffe380f080743911f23bd95a9808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffectPrefab: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 236d41fcd5624184fa7a8bf68c7b8bb6, type: 3}
 --- !u!65 &1534800001
 BoxCollider:
@@ -847,7 +845,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: bd0575cd676014a458f869bfd3a76d37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
