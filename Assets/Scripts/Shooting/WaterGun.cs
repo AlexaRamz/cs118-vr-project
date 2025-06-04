@@ -93,7 +93,15 @@ public class WaterGun : MonoBehaviour
         if (shootable != null)
         {
             shootable.OnHit();
-            Debug.Log("Did Hit");
+            if (ScoreManager.Instance == null)
+            {
+                Debug.LogError("Score manager does not exist!");
+            }
+            else
+            {
+                // TODO: Increment score each time a new object is hit
+                ScoreManager.Instance.IncrementScore();
+            }
         }
     }
 }
