@@ -7,7 +7,8 @@ public class TriggerBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && onTriggerEnterEvent != null) {
+        Debug.Log(other);
+        if ((other.tag == "Player" || other.tag == "MainCamera") && onTriggerEnterEvent != null) {
             onTriggerEnterEvent.Invoke();
         }
     }
