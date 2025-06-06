@@ -30,7 +30,6 @@ public class PauseManager : MonoBehaviour
         {
             if (GameManager.Instance.gameIsPaused)
             {
-
                 Resume();
             }
             else
