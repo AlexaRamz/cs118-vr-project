@@ -1,39 +1,5 @@
-//using UnityEngine;
-
-//public class TestShootable : MonoBehaviour, IShootable
-//{
-//    public AudioClip hitSound;
-//    private AudioSource audioSource;
-
-//    private float lastHitTime = -Mathf.Infinity;
-//    private float soundCooldown = 0.3f;  
-
-//    void Start()
-//    {
-//        audioSource = GetComponent<AudioSource>();
-//    }
-
-//    public void OnHit()
-//    {
-//        float currentTime = Time.time;
-
-
-//        if (currentTime - lastHitTime >= soundCooldown)
-//        {
-//            Debug.Log("The object was shot");
-
-
-//            if (hitSound && audioSource)
-//            {
-//                audioSource.PlayOneShot(hitSound);
-//            }
-
-//            lastHitTime = currentTime;
-//        }
-//    }
-//}
-
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class TestShootable : MonoBehaviour, IShootable
 {
@@ -44,23 +10,26 @@ public class TestShootable : MonoBehaviour, IShootable
     private float soundCooldown = 0.3f;
 
     private Renderer rend;
-    private Material mat;
-    private Color originalColor;
-    private float currentAlpha = 1f;
-    private float fadeStep = 0.1f;
-    private float fadeDuration = 2f;
-    private float fadeCooldown = 0.2f; // 투명화나 복원 한 단계당 시간 (2초에 10단계)
-    private float nextFadeTime = 0f;
-    private bool isBeingShot = false;
+    private Material materialInstance;
+    private Color initialAlbedoColor;
 
-    void Start()
+    private float currentTransparency = 1f;
+    [SerializeField] private float hitFadeStep = 0.1f;
+    [SerializeField] private float fadeOutDuration = 2f;
+    [SerializeField] private float fadeInSpeed = 1f;
+
+    private bool isHitRecently = false;
+
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
-        mat = rend.material;
-        originalColor = mat.color;
 
-        SetMaterialToTransparent();
+        materialInstance = rend.material;
+        initialAlbedoColor = materialInstance.color;
+
+        SetMaterialToTransparentMode();
+        ApplyTransparency(currentTransparency);
     }
 
     public void OnHit()
@@ -75,62 +44,60 @@ public class TestShootable : MonoBehaviour, IShootable
             {
                 audioSource.PlayOneShot(hitSound);
             }
-
             lastHitTime = currentTime;
         }
 
-        isBeingShot = true;
+        isHitRecently = true;
+
+        currentTransparency -= hitFadeStep;
+        currentTransparency = Mathf.Max(0f, currentTransparency);
+        ApplyTransparency(currentTransparency);
     }
 
     void Update()
     {
-        float currentTime = Time.time;
-
-        if (currentTime >= nextFadeTime)
+        if (Time.time - lastHitTime > soundCooldown)
         {
-            nextFadeTime = currentTime + fadeCooldown;
-
-            if (isBeingShot && currentAlpha > 0.1f)
-            {
-                // 투명해짐
-                currentAlpha -= fadeStep;
-                currentAlpha = Mathf.Max(0.1f, currentAlpha);
-                ApplyAlpha(currentAlpha);
-            }
-            else if (!isBeingShot && currentAlpha < 1f)
-            {
-                // 복원
-                currentAlpha += fadeStep;
-                currentAlpha = Mathf.Min(1f, currentAlpha);
-                ApplyAlpha(currentAlpha);
-            }
+            isHitRecently = false;
         }
 
-        // 일정 시간 지나면 쏘고 있지 않다고 판단
-        if (Time.time - lastHitTime > 0.3f)
+        if (!isHitRecently && currentTransparency < 1f)
         {
-            isBeingShot = false;
+            currentTransparency += fadeInSpeed * Time.deltaTime;
+            currentTransparency = Mathf.Min(1f, currentTransparency);
+
+            ApplyTransparency(currentTransparency);
         }
     }
 
-    private void ApplyAlpha(float alpha)
+    private void ApplyTransparency(float alphaValue)
     {
-        Color c = originalColor;
-        c.a = alpha;
-        mat.color = c;
+        Color newColor = initialAlbedoColor;
+        newColor.a = alphaValue;
+        materialInstance.color = newColor;
     }
 
-    private void SetMaterialToTransparent()
+    private void SetMaterialToTransparentMode()
     {
-        // Standard Shader 기준
-        mat.SetFloat("_Mode", 3);
-        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        mat.SetInt("_ZWrite", 0);
-        mat.DisableKeyword("_ALPHATEST_ON");
-        mat.EnableKeyword("_ALPHABLEND_ON");
-        mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        mat.renderQueue = 3000;
+        materialInstance.SetFloat("_Surface", 1f);
+
+        materialInstance.SetInt("_Blend", (int)BlendMode.SrcAlpha);
+        materialInstance.SetInt("_SrcBlend", (int)BlendMode.SrcAlpha);
+        materialInstance.SetInt("_DstBlend", (int)BlendMode.OneMinusSrcAlpha);
+
+        materialInstance.SetInt("_ZWrite", 0);
+        materialInstance.DisableKeyword("_ALPHATEST_ON");
+        materialInstance.EnableKeyword("_ALPHABLEND_ON");
+        materialInstance.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+
+        materialInstance.renderQueue = (int)RenderQueue.Transparent;
+    }
+
+    void OnDestroy()
+    {
+        if (materialInstance != null)
+        {
+            Destroy(materialInstance);
+        }
     }
 }
-

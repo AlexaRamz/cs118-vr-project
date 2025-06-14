@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 96182939738633185}
   - component: {fileID: 626386107554700475}
   - component: {fileID: 3881602639229671849}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: waterGun_tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 8797940401644405415}
   - component: {fileID: 837417546669166662}
   - component: {fileID: 4091705701049591799}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WaterStream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 2799418774066730684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.42, z: 3.426}
+  m_LocalPosition: {x: 0, y: 0.42, z: 4.795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5081,8 +5081,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30637038, y: 0.690142, z: 2.2925956}
-  m_Center: {x: 0, y: 0.3555638, z: 0.59476763}
+  m_Size: {x: 0.30637038, y: 0.690142, z: 1.9545083}
+  m_Center: {x: 2.291247e-15, y: 0.3555638, z: 0.42572412}
 --- !u!54 &1417789068948359872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5243,7 +5243,7 @@ GameObject:
   - component: {fileID: 3632707943217751415}
   - component: {fileID: 1704855909500638238}
   - component: {fileID: 4815359168992821974}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WaterSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10134,7 +10134,7 @@ GameObject:
   - component: {fileID: 319494572142886419}
   - component: {fileID: 7991255924059241167}
   - component: {fileID: 1895574994588321622}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: waterGun_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10223,7 +10223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951538155041884762}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: waterGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10259,7 +10259,7 @@ GameObject:
   - component: {fileID: 6443316122438667389}
   - component: {fileID: 1019039104093294526}
   - component: {fileID: 59033232501812458}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: waterGun_trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
