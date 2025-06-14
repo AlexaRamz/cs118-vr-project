@@ -309,6 +309,81 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_AllowGazeInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7809767397873092253}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7809767397873092253}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGazeExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGazeEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GazeLightToggle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GazeLightToggle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_LastHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295954935051539482, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -341,6 +416,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7809767397873092253}
+    - targetCorrespondingSourceObject: {fileID: 765298633343485737, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 793806848721099157}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa5f7b4d2e351a4186e61b41b0797fd, type: 3}
 --- !u!1 &3982971074848654657 stripped
 GameObject:
@@ -495,6 +574,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 7726711494532183643}
+--- !u!65 &793806848721099157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982971074848654657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 0.9848948, z: 0.6}
+  m_Center: {x: 0.05251246, y: 0.17379937, z: -0.0019264668}
 --- !u!4 &4327268454826696699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 132068534841220499, guid: 8aa5f7b4d2e351a4186e61b41b0797fd,
